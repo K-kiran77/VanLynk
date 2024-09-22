@@ -43,16 +43,16 @@ async function buildDatabase() {
 
     // Insert rentals
     await Rental.create([
-      { van_id: vans[0]._id, email: 'j@g.com', total_cost: 240, placed_date: new Date('2023-06-30T18:00:00Z'), start_date: new Date('2023-07-01T10:00:00Z'), end_date: new Date('2023-07-05T15:00:00Z') },
-      { van_id: vans[1]._id, email: 'a@b.com', total_cost: 480, placed_date: new Date('2023-07-01T20:00:00Z'), start_date: new Date('2023-07-02T12:00:00Z'), end_date: new Date('2023-07-08T14:00:00Z') },
-      { van_id: vans[2]._id, email: 'c@d.com', total_cost: 280, placed_date: new Date('2023-07-04T16:00:00Z'), start_date: new Date('2023-08-03T11:00:00Z'), end_date: new Date('2023-08-07T16:00:00Z') },
-      { van_id: vans[3]._id, email: 'e@f.com', total_cost: 400, placed_date: new Date('2023-07-20T14:00:00Z'), start_date: new Date('2023-08-05T09:00:00Z'), end_date: new Date('2023-08-10T13:00:00Z') },
-      { van_id: vans[4]._id, email: 'g@h.com', total_cost: 325, placed_date: new Date('2023-08-10T11:00:00Z'), start_date: new Date('2023-09-07T14:00:00Z'), end_date: new Date('2023-09-12T18:00:00Z') },
-      { van_id: vans[5]._id, email: 'j@g.com', total_cost: 720, placed_date: new Date('2023-08-30T09:00:00Z'), start_date: new Date('2023-09-09T10:00:00Z'), end_date: new Date('2023-09-15T12:00:00Z') },
-      { van_id: vans[0]._id, email: 'a@b.com', total_cost: 240, placed_date: new Date('2023-11-01T08:00:00Z'), start_date: new Date('2023-11-10T08:00:00Z'), end_date: new Date('2023-11-14T14:00:00Z') },
-      { van_id: vans[1]._id, email: 'c@d.com', total_cost: 400, placed_date: new Date('2023-11-08T13:00:00Z'), start_date: new Date('2023-11-12T13:00:00Z'), end_date: new Date('2023-11-17T16:00:00Z') },
-      { van_id: vans[2]._id, email: 'e@f.com', total_cost: 350, placed_date: new Date('2023-11-10T11:00:00Z'), start_date: new Date('2023-11-15T11:00:00Z'), end_date: new Date('2023-11-20T15:00:00Z') },
-      { van_id: vans[3]._id, email: 'g@h.com', total_cost: 400, placed_date: new Date('2023-11-15T09:00:00Z'), start_date: new Date('2023-11-18T09:00:00Z'), end_date: new Date('2023-11-22T14:00:00Z') }
+      { van_id: vans[0]._id, image_url: 'https://assets.scrimba.com/advanced-react/react-router/modest-explorer.png', email: 'j@g.com', total_cost: 240, placed_date: new Date('2023-06-30T18:00:00Z'), start_date: new Date('2023-07-01T10:00:00Z'), end_date: new Date('2023-07-05T15:00:00Z') },
+      { van_id: vans[1]._id, image_url: 'https://assets.scrimba.com/advanced-react/react-router/beach-bum.png', email: 'a@b.com', total_cost: 480, placed_date: new Date('2023-07-01T20:00:00Z'), start_date: new Date('2023-07-02T12:00:00Z'), end_date: new Date('2023-07-08T14:00:00Z') },
+      { van_id: vans[2]._id, image_url: 'https://assets.scrimba.com/advanced-react/react-router/green-wonder.png', email: 'c@d.com', total_cost: 280, placed_date: new Date('2023-07-04T16:00:00Z'), start_date: new Date('2023-08-03T11:00:00Z'), end_date: new Date('2023-08-07T16:00:00Z') },
+      { van_id: vans[3]._id, image_url: 'https://assets.scrimba.com/advanced-react/react-router/reliable-red.png', email: 'e@f.com', total_cost: 400, placed_date: new Date('2023-07-20T14:00:00Z'), start_date: new Date('2023-08-05T09:00:00Z'), end_date: new Date('2023-08-10T13:00:00Z') },
+      { van_id: vans[4]._id, image_url: 'https://assets.scrimba.com/advanced-react/react-router/dreamfinder.png', email: 'g@h.com', total_cost: 325, placed_date: new Date('2023-08-10T11:00:00Z'), start_date: new Date('2023-09-07T14:00:00Z'), end_date: new Date('2023-09-12T18:00:00Z') },
+      { van_id: vans[5]._id, image_url: 'https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png', email: 'j@g.com', total_cost: 720, placed_date: new Date('2023-08-30T09:00:00Z'), start_date: new Date('2023-09-09T10:00:00Z'), end_date: new Date('2023-09-15T12:00:00Z') },
+      { van_id: vans[0]._id, image_url: 'https://assets.scrimba.com/advanced-react/react-router/modest-explorer.png', email: 'a@b.com', total_cost: 240, placed_date: new Date('2023-11-01T08:00:00Z'), start_date: new Date('2023-11-10T08:00:00Z'), end_date: new Date('2023-11-14T14:00:00Z') },
+      { van_id: vans[1]._id, image_url: 'https://assets.scrimba.com/advanced-react/react-router/beach-bum.png', email: 'c@d.com', total_cost: 400, placed_date: new Date('2023-11-08T13:00:00Z'), start_date: new Date('2023-11-12T13:00:00Z'), end_date: new Date('2023-11-17T16:00:00Z') },
+      { van_id: vans[2]._id, image_url: 'https://assets.scrimba.com/advanced-react/react-router/green-wonder.png', email: 'e@f.com', total_cost: 350, placed_date: new Date('2023-11-10T11:00:00Z'), start_date: new Date('2023-11-15T11:00:00Z'), end_date: new Date('2023-11-20T15:00:00Z') },
+      { van_id: vans[3]._id, image_url: 'https://assets.scrimba.com/advanced-react/react-router/reliable-red.png', email: 'g@h.com', total_cost: 400, placed_date: new Date('2023-11-15T09:00:00Z'), start_date: new Date('2023-11-18T09:00:00Z'), end_date: new Date('2023-11-22T14:00:00Z') }
     ]);
 
     console.log('Database built successfully');
