@@ -18,7 +18,7 @@ const upload = multer();
 // Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served.
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://vanlynk.onrender.com',
     credentials: true,
   })
 );
@@ -180,7 +180,7 @@ app.post('/vans/:id/rent', async (req, res) => {
       return;
     }
     const vanImage = van.image_url
-    const msg = await vanLife.insertRental(vanId,vanImage, email, totalCost, startDate, endDate)
+    const msg = await vanLife.insertRental(vanId, vanImage, email, totalCost, startDate, endDate)
     res.json({ success: true, message: msg })
   } catch (err) {
     console.error(err);
