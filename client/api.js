@@ -1,5 +1,6 @@
+const url = "https://vanlynk-backend.onrender.com"
 export async function getVans() {
-    const res = await fetch("http://localhost:3000/vans", { credentials: "include" })
+    const res = await fetch(`${url}/vans`, { credentials: "include" })
     if (!res.ok) {
         const error = {
             message: "Failed to fetch vans",
@@ -14,7 +15,7 @@ export async function getVans() {
 }
 
 export async function getVanById(id) {
-    const res = await fetch(`http://localhost:3000/vans/${id}`, { credentials: "include" })
+    const res = await fetch(`${url}/vans/${id}`, { credentials: "include" })
     if (!res.ok) {
         const error = {
             message: `Failed to fetch van by id: ${id}`,
@@ -29,7 +30,7 @@ export async function getVanById(id) {
 }
 
 export async function getHostVans() {
-    const res = await fetch("http://localhost:3000/host/vans", { credentials: "include" })
+    const res = await fetch(`${url}/host/vans`, { credentials: "include" })
     if (!res.ok) {
         const error = {
             message: "Failed to fetch host vans",
@@ -44,7 +45,7 @@ export async function getHostVans() {
 }
 
 export async function getHostVanById(id) {
-    const res = await fetch(`http://localhost:3000/host/vans/${id}`, { credentials: "include" })
+    const res = await fetch(`${url}/host/vans/${id}`, { credentials: "include" })
     if (!res.ok) {
         const error = {
             message: `Failed to fetch host van by id: ${id}`,
@@ -59,7 +60,7 @@ export async function getHostVanById(id) {
 }
 
 export async function getHostRentedVans() {
-    const res = await fetch("http://localhost:3000/host/vans/rented", { credentials: "include" })
+    const res = await fetch(`${url}/host/vans/rented`, { credentials: "include" })
     if (!res.ok) {
         const error = {
             message: "Failed to fetch host rented vans",
@@ -74,7 +75,7 @@ export async function getHostRentedVans() {
 }
 
 export async function getHostReviews() {
-    const res = await fetch("http://localhost:3000/host/reviews", { credentials: "include" })
+    const res = await fetch(`${url}/host/reviews`, { credentials: "include" })
     if (!res.ok) {
         const error = {
             message: "Failed to fetch host reviews",
@@ -89,7 +90,7 @@ export async function getHostReviews() {
 }
 
 export async function getUserRentals() {
-    const res = await fetch("http://localhost:3000/rentals", { credentials: "include" })
+    const res = await fetch(`${url}/rentals`, { credentials: "include" })
     if (!res.ok) {
         const error = {
             message: "Failed to fetch user rentals",
@@ -104,7 +105,7 @@ export async function getUserRentals() {
 }
 
 export async function registerUser(creds) {
-    const res = await fetch("http://localhost:3000/register",
+    const res = await fetch(`${url}/register`,
     {
         method: "POST",
         body: JSON.stringify(creds),
@@ -125,7 +126,7 @@ export async function registerUser(creds) {
 }
 
 export async function loginUser(creds) {
-    const res = await fetch("http://localhost:3000/login", 
+    const res = await fetch(`${url}/login`, 
         { 
             method: "POST", 
             body: JSON.stringify(creds),
@@ -147,7 +148,7 @@ export async function loginUser(creds) {
 }
 
 export async function logoutUser() {
-    const res = await fetch("http://localhost:3000/logout", { credentials: "include" })
+    const res = await fetch(`${url}/logout`, { credentials: "include" })
     const data = await res.json();
     if (!res.ok) {
         throw new Error(`Logout failed: ${data.message}`);
@@ -156,10 +157,10 @@ export async function logoutUser() {
 }
 
 export async function rentVan(id, totalCost, startDate, endDate) {
-    const res = await fetch(`http://localhost:3000/vans/${id}/rent`,
+    const res = await fetch(`${url}/vans/${id}/rent`,
         {
             method: 'POST',
-            body: JSON.stringify({ totalCost, startDate, endDate }),
+            body: JSON.stringify({totalCost, startDate, endDate }),
             headers: {
                 "Content-Type": "application/json",
             },
@@ -178,7 +179,7 @@ export async function rentVan(id, totalCost, startDate, endDate) {
 }
 
 export async function postUserReview(email, vanId, rating, description) {
-    const res = await fetch(`http://localhost:3000/rentals/review`, 
+    const res = await fetch(`${url}/rentals/review`, 
         {
             method: 'POST',
             body: JSON.stringify({ email, vanId, rating, description }),
@@ -206,7 +207,7 @@ export async function addVan(name, type, price, description, imageFile) {
     formData.append('description', description);
     formData.append('imageFile', imageFile);
 
-    const res = await fetch(`http://localhost:3000/host/vans`, 
+    const res = await fetch(`${url}/host/vans`, 
         {
             method: 'POST',
             body: formData,
@@ -233,7 +234,7 @@ export async function updateVan(id, name, type, price, description, imageFile, i
     formData.append('imageFile', imageFile);
     formData.append('imageURL', imageURL);
 
-    const res = await fetch(`http://localhost:3000/host/vans/${id}`, 
+    const res = await fetch(`${url}/host/vans/${id}`, 
         {
             method: 'PUT',
             body: formData,
@@ -252,7 +253,7 @@ export async function updateVan(id, name, type, price, description, imageFile, i
 }
 
 export async function deleteVan(id) {
-    const res = await fetch(`http://localhost:3000/host/vans/${id}`,
+    const res = await fetch(`${url}/host/vans/${id}`,
         {
             method: 'DELETE',
             headers: {
