@@ -7,7 +7,7 @@ import 'dotenv/config';
 import * as vanLife from "./vanLife.js"
 import cloudinary from "./utils/cloudinary.js"
 import { getPublicId, bufferToDataUri } from "./utils/helpers.js"
-import { ObjectId } from "mongodb";
+import MongoStore from "connect-mongo"
 // create an express application
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -25,10 +25,19 @@ app.use(
 // session config
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
-    resave: false, 
-    saveUninitialized: true
-}));
+    secret: process.env.SESSION_SECRET, // Keep your secret in environment variables
+    resave: false,
+    saveUninitialized: false, // Avoid saving uninitialized sessions
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URL, // MongoDB connection string from environment variables
+      ttl: 14 * 24 * 60 * 60, // Session expiration time (14 days here)
+    }),
+    cookie: {
+      secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+      maxAge: 14 * 24 * 60 * 60 * 1000, // Set cookie expiration (14 days here)
+    },
+  })
+);
 // using JSON file from any client to Express
 app.use(express.json());
 app.get('/', (req, res) => {
@@ -190,6 +199,7 @@ app.post('/vans/:id/rent', async (req, res) => {
 
 app.get('/host/vans', async (req, res) => {
   const hostId = req.session.hostId
+  console.log(hostId)
 
   try {
     const result = await vanLife.getHostVans(hostId)
