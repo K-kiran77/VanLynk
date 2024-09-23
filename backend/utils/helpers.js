@@ -55,6 +55,7 @@ export const executeQuery = async (collection, operation, query, options = { fet
                 results = options.fetchOne ? 
                     await db.collection(collection).findOne(query) :
                     await db.collection(collection).find(query).toArray();
+                    console.log(results)
                 break;
             case "insert":
                 results = await db.collection(collection).insertOne(query);
