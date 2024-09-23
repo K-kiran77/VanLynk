@@ -199,7 +199,7 @@ app.post('/vans/:id/rent', async (req, res) => {
 
 app.get('/host/vans', async (req, res) => {
   const hostId = req.session.hostId
-  console.log(`the session object is ${req.session}`)
+  console.log(`the session object is ${JSON.stringify(req.session)}`)
   console.log(`the host id is:${hostId}`)
 
   try {
