@@ -27,14 +27,17 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET, // Keep your secret in environment variables
     resave: false,
-    saveUninitialized: false, // Avoid saving uninitialized sessions
+    saveUninitialized: false,// Avoid saving uninitialized sessions
+    httpOnly:false,
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI, // MongoDB connection string from environment variables
       ttl: 14 * 24 * 60 * 60, // Session expiration time (14 days here)
     }),
     cookie: {
       secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
-      maxAge: 14 * 24 * 60 * 60 * 1000, // Set cookie expiration (14 days here)
+      maxAge: 14 * 24 * 60 * 60 * 1000,
+      sameSite:'Strict',
+      httpOnly:false,// Set cookie expiration (14 days here)
     },
   })
 );
