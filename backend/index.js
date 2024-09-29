@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 
 // setup for image upload
 const upload = multer();
-
+app.set("trust proxy", 1);
 // Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served.
 app.use(
   cors({
@@ -36,7 +36,7 @@ app.use(
     cookie: {
       secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
       maxAge: 14 * 24 * 60 * 60 * 1000,
-      sameSite:'Strict',
+      sameSite:'none',
       httpOnly:true,// Set cookie expiration (14 days here)
     },
   })
