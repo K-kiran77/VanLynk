@@ -63,7 +63,7 @@ app.post('/login', async (req, res) => {
         req.session.renterId = user._id.toString();
       }
       req.session.save();
-      res.cookies(req.session);
+      res.cookie(req.session);
       res.json({ success: true, message: 'Login successful' })
     } else {
       res.status(401).json({ success: false, message: 'Invalid credentials' });
